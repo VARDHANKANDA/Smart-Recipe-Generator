@@ -1,0 +1,178 @@
+import type { PantryItem, Recipe, Recommendation, ShoppingItem, User } from "../types";
+
+export const demoUser: User = {
+  id: 1,
+  email: "student@smartchef.ai",
+  full_name: "Demo Student",
+  role: "user",
+  dietary_preferences: "High protein, vegetarian friendly",
+  allergies: "Peanuts",
+  avatar_url: null,
+  created_at: new Date().toISOString()
+};
+
+export const recipes: Recipe[] = [
+  {
+    id: 1,
+    title: "Mediterranean Chickpea Power Bowl",
+    slug: "mediterranean-chickpea-power-bowl",
+    cuisine: "Mediterranean",
+    difficulty: "Easy",
+    diet: "Vegetarian",
+    calories: 520,
+    protein: 22,
+    carbs: 64,
+    fat: 18,
+    prep_time: 12,
+    cook_time: 8,
+    servings: 2,
+    image_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
+    video_url: "",
+    ingredients: ["chickpeas", "cucumber", "tomato", "feta", "olive oil", "lemon", "quinoa"],
+    instructions: ["Cook quinoa until fluffy.", "Toss chickpeas with lemon and olive oil.", "Layer vegetables, grains, and feta.", "Finish with herbs."],
+    tags: ["protein", "fresh", "quick"],
+    rating: 4.8,
+    views: 1280,
+    saves: 420,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 2,
+    title: "Paneer Tikka Millet Wrap",
+    slug: "paneer-tikka-millet-wrap",
+    cuisine: "Indian",
+    difficulty: "Medium",
+    diet: "Vegetarian",
+    calories: 610,
+    protein: 31,
+    carbs: 70,
+    fat: 22,
+    prep_time: 20,
+    cook_time: 18,
+    servings: 3,
+    image_url: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80",
+    video_url: "",
+    ingredients: ["paneer", "yogurt", "millet roti", "bell pepper", "onion", "tikka masala", "mint"],
+    instructions: ["Marinate paneer.", "Roast paneer with peppers.", "Warm millet rotis.", "Fill and roll with chutney."],
+    tags: ["indian", "high protein", "dinner"],
+    rating: 4.7,
+    views: 980,
+    saves: 310,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 3,
+    title: "Garlic Butter Salmon Rice Bowl",
+    slug: "garlic-butter-salmon-rice-bowl",
+    cuisine: "Japanese Fusion",
+    difficulty: "Medium",
+    diet: "High Protein",
+    calories: 690,
+    protein: 42,
+    carbs: 58,
+    fat: 30,
+    prep_time: 10,
+    cook_time: 16,
+    servings: 2,
+    image_url: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
+    video_url: "",
+    ingredients: ["salmon", "rice", "garlic", "butter", "soy sauce", "broccoli", "sesame"],
+    instructions: ["Cook rice.", "Sear salmon.", "Add garlic butter and soy.", "Serve over rice with broccoli."],
+    tags: ["omega 3", "balanced", "dinner"],
+    rating: 4.9,
+    views: 1520,
+    saves: 540,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 4,
+    title: "Thai Coconut Lentil Soup",
+    slug: "thai-coconut-lentil-soup",
+    cuisine: "Thai",
+    difficulty: "Easy",
+    diet: "Vegan",
+    calories: 430,
+    protein: 18,
+    carbs: 52,
+    fat: 16,
+    prep_time: 10,
+    cook_time: 24,
+    servings: 4,
+    image_url: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80",
+    video_url: "",
+    ingredients: ["red lentils", "coconut milk", "ginger", "garlic", "lime", "carrot", "thai curry paste"],
+    instructions: ["Saute aromatics.", "Add lentils and stock.", "Simmer until tender.", "Finish with coconut milk and lime."],
+    tags: ["vegan", "soup", "comfort"],
+    rating: 4.6,
+    views: 760,
+    saves: 260,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 5,
+    title: "Avocado Egg Breakfast Toast",
+    slug: "avocado-egg-breakfast-toast",
+    cuisine: "American",
+    difficulty: "Easy",
+    diet: "Vegetarian",
+    calories: 390,
+    protein: 18,
+    carbs: 34,
+    fat: 21,
+    prep_time: 8,
+    cook_time: 6,
+    servings: 1,
+    image_url: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1200&q=80",
+    video_url: "",
+    ingredients: ["sourdough", "avocado", "egg", "chili flakes", "lemon", "microgreens"],
+    instructions: ["Toast sourdough.", "Mash avocado with lemon.", "Cook egg.", "Assemble and season."],
+    tags: ["breakfast", "quick", "healthy fats"],
+    rating: 4.5,
+    views: 660,
+    saves: 180,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: 6,
+    title: "Miso Mushroom Soba",
+    slug: "miso-mushroom-soba",
+    cuisine: "Japanese",
+    difficulty: "Easy",
+    diet: "Vegan",
+    calories: 470,
+    protein: 19,
+    carbs: 74,
+    fat: 11,
+    prep_time: 12,
+    cook_time: 14,
+    servings: 2,
+    image_url: "https://images.unsplash.com/photo-1618841557871-b4664fbf0cb3?auto=format&fit=crop&w=1200&q=80",
+    video_url: "",
+    ingredients: ["soba", "miso", "mushrooms", "bok choy", "sesame oil", "scallions"],
+    instructions: ["Cook soba.", "Simmer mushrooms in miso broth.", "Add greens.", "Serve with sesame oil."],
+    tags: ["umami", "vegan", "noodles"],
+    rating: 4.7,
+    views: 880,
+    saves: 290,
+    created_at: new Date().toISOString()
+  }
+];
+
+export const recommendations: Recommendation[] = recipes.slice(0, 4).map((recipe, index) => ({
+  recipe,
+  confidence: [96, 91, 88, 84][index],
+  reasons: ["Matches your pantry", "Popular this week", "Balanced nutrition"]
+}));
+
+export const pantryItems: PantryItem[] = [
+  { id: 1, user_id: 1, name: "Chickpeas", quantity: 2, unit: "cans", category: "Protein", expiry_date: "2026-07-12", low_stock_threshold: 1 },
+  { id: 2, user_id: 1, name: "Rice", quantity: 1.5, unit: "kg", category: "Grains", expiry_date: "2026-09-10", low_stock_threshold: 0.5 },
+  { id: 3, user_id: 1, name: "Lemon", quantity: 3, unit: "pcs", category: "Produce", expiry_date: "2026-07-08", low_stock_threshold: 2 }
+];
+
+export const shoppingItems: ShoppingItem[] = [
+  { id: 1, name: "Greek Yogurt", quantity: 1, unit: "tub", category: "Dairy", checked: false },
+  { id: 2, name: "Fresh Basil", quantity: 1, unit: "bunch", category: "Produce", checked: true },
+  { id: 3, name: "Quinoa", quantity: 1, unit: "pack", category: "Grains", checked: false }
+];
+

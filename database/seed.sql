@@ -1,0 +1,16 @@
+INSERT INTO users (email, full_name, hashed_password, role, dietary_preferences, allergies)
+VALUES
+('student@smartchef.ai', 'Demo Student', '$2b$12$m2vWn6i2w8Zp3w15x7rUBO7ixwqIjAhStVKj9W4N2Sn4qoWXKxJ8a', 'user', 'high protein, vegetarian friendly', 'peanuts'),
+('admin@smartchef.ai', 'Admin Chef', '$2b$12$j0NDLLrrfCGXBGVMN3oUEuiEhbjyClxwYC8NyYUI1Oe6YcMJG54xy', 'admin', '', '')
+ON CONFLICT (email) DO NOTHING;
+
+INSERT INTO recipes
+(title, slug, cuisine, difficulty, diet, calories, protein, carbs, fat, prep_time, cook_time, servings, image_url, video_url, ingredients, instructions, tags, rating, views, saves)
+VALUES
+('Mediterranean Chickpea Power Bowl', 'mediterranean-chickpea-power-bowl', 'Mediterranean', 'Easy', 'Vegetarian', 520, 22, 64, 18, 12, 8, 2, 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80', '', '["chickpeas", "cucumber", "tomato", "feta", "olive oil", "lemon", "quinoa"]', '["Cook quinoa until fluffy.", "Toss chickpeas with olive oil, lemon, salt, and pepper.", "Layer vegetables, quinoa, chickpeas, and feta.", "Serve with fresh herbs."]', '["protein", "lunch", "fresh", "quick"]', 4.8, 1280, 420),
+('Paneer Tikka Millet Wrap', 'paneer-tikka-millet-wrap', 'Indian', 'Medium', 'Vegetarian', 610, 31, 70, 22, 20, 18, 3, 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80', '', '["paneer", "yogurt", "millet roti", "bell pepper", "onion", "tikka masala", "mint"]', '["Marinate paneer with yogurt and spices.", "Roast paneer with peppers and onions.", "Warm millet rotis.", "Fill, roll, and finish with mint chutney."]', '["indian", "high protein", "dinner"]', 4.7, 980, 310),
+('Garlic Butter Salmon Rice Bowl', 'garlic-butter-salmon-rice-bowl', 'Japanese Fusion', 'Medium', 'High Protein', 690, 42, 58, 30, 10, 16, 2, 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80', '', '["salmon", "rice", "garlic", "butter", "soy sauce", "broccoli", "sesame"]', '["Cook rice and steam broccoli.", "Sear salmon skin-side down.", "Add garlic butter and soy sauce.", "Serve over rice with sesame."]', '["omega 3", "dinner", "balanced"]', 4.9, 1520, 540),
+('Thai Coconut Lentil Soup', 'thai-coconut-lentil-soup', 'Thai', 'Easy', 'Vegan', 430, 18, 52, 16, 10, 24, 4, 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80', '', '["red lentils", "coconut milk", "ginger", "garlic", "lime", "carrot", "thai curry paste"]', '["Saute garlic and ginger.", "Add curry paste, lentils, carrots, and stock.", "Simmer until lentils soften.", "Finish with coconut milk and lime."]', '["vegan", "soup", "comfort"]', 4.6, 760, 260),
+('Avocado Egg Breakfast Toast', 'avocado-egg-breakfast-toast', 'American', 'Easy', 'Vegetarian', 390, 18, 34, 21, 8, 6, 1, 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1200&q=80', '', '["sourdough", "avocado", "egg", "chili flakes", "lemon", "microgreens"]', '["Toast sourdough.", "Mash avocado with lemon and salt.", "Cook egg to preference.", "Assemble and top with chili flakes."]', '["breakfast", "quick", "healthy fats"]', 4.5, 660, 180)
+ON CONFLICT (slug) DO NOTHING;
+

@@ -1,0 +1,2 @@
+"""SmartChef AI backend package."""
+
